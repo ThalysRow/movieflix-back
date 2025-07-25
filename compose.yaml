@@ -1,0 +1,15 @@
+services:
+  movie-flix:
+    image: postgres:17-alpine
+    container_name: movie-flix
+    environment:
+        POSTGRES_DB: ${NAME_DB}
+        POSTGRES_USER: ${USER_DB}
+        POSTGRES_PASSWORD: ${PASSWORD_DB}
+    ports:
+      - ${PORT_DB}:5432
+    volumes:
+      - movie-flix:/var/lib/postgresql/data
+
+volumes:
+  movie-flix:
